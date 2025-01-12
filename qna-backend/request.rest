@@ -1,0 +1,229 @@
+curl -X GET http://localhost:5000/api/users/profile \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTczNjE2MjQwMCwiZXhwIjoxNzM2MjQ4ODAwfQ.inC5D5BAssM_5garZYMvAxk-xRxIVu-wkMpzIOE0CkI"
+
+
+####
+curl -X POST http://localhost:5000/api/questions/add \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzM1NzE0MDk3LCJleHAiOjE3MzU3MTc2OTd9.TK6KFWAF0ALjeUo_fIYwB2V2Fa6ffWPZx4dnI0_SA8k" \
+-d '{
+  "user_id": "1",
+  "category_id": "1",
+  "question_text": "How do I fix this issue?"
+}'
+
+####
+curl -X GET http://localhost:5000/api/questions/1/answers \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTczNjA1NzIwNiwiZXhwIjoxNzM2MTQzNjA2fQ.teJh8NF-AqnYvrQ8xQZDB3yK0sKnMsn6Cv-sARvhIUk"
+
+
+####
+curl -X POST http://localhost:5000/api/questions/add -H "Content-Type: application/json" -d '{
+  "user_id": "1",
+  "category_id": "1",
+  "question_text": "How do I fix this issue?"
+}'
+
+
+####
+curl -X POST http://localhost:5000/api/auth/login \
+-H "Content-Type: application/json" \
+-d '{"username":"Rusmana","password":"123456"}'
+
+####
+curl -X POST http://localhost:5000/api/questions/add \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzM2NDM0NDM3LCJleHAiOjE3MzY1MjA4Mzd9.XFKho5LkBKtFOZS6aJf4ReWfrgsw6WEX2LwjhGhcIMk" \
+-d '{"questionText": "Berapa bulan dari hijriahh?", "categoryId": null}'
+
+####
+curl -X GET http://localhost:5000/api/questions/ \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTczNjUxNjk0NywiZXhwIjoxNzM2NjAzMzQ3fQ.MyjL5Q8CNkSxYLVTnCltVCRtbOG_VnWX-XW4eBNoECg"
+
+####
+curl -X GET http://localhost:5000/api/users/profile \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzM1NzQzMDk4LCJleHAiOjE3MzU3NDY2OTh9.h2-iJEGnCei2LDOJnLZnr9NRTtS8SK8d5FcE1RpPtDo"
+
+####
+curl -X GET http://localhost:5000/api/questions/105/answers
+
+####
+curl -X POST http://localhost:5000/api/answers/105/answers \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTczNjU3ODk2NCwiZXhwIjoxNzM2NjY1MzY0fQ.zgmHd2D5143lepLvI-OvuOXkLrd2zNnGiPyE6O7heT4" \
+-d '{
+"questionId": 105,
+  "answerText": "itu AKU",
+  "adminId": 10
+}'
+
+####
+curl -X PUT http://localhost:5000/api/users/profile/ \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzM1Nzk3MzEwLCJleHAiOjE3MzU4MDA5MTB9.GlViT6-luXedwiedj2PHcG7I5_iiry2MS5zkIaU3MKs" \
+-H "Content-Type: application/json" \
+-d '{
+  "username": "Buser",
+  "whatsappnumber": "085724437888",
+  "password": "Password321"
+}'
+
+
+####
+curl -X POST http://localhost:5000/api/users/register \
+-H "Content-Type: application/json" \
+-d '{"username":"bestuser", "whatsapp_number": "081234567790", "password":"password123"}'
+
+####
+curl -X POST http://localhost:5000/api/categories \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzM1ODAwNTYwLCJleHAiOjE3MzU4MDQxNjB9.JCqOFta-z-GJ1yvJbZctjEvIiGfEqrMb2EbHMvP7kNA" \
+-d '{"category_name": "Sepak"}'
+
+####
+curl -X GET http://localhost:5000/api/categories \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTczNjUyMDM0NSwiZXhwIjoxNzM2NjA2NzQ1fQ.zQHzAL5rGVbNmxtnlNCUZ9xvdsVqXH84cdvLB082lKY"
+
+####
+curl -X PUT http://localhost:5000/api/categories/1 \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzM1Nzk5Mzg2LCJleHAiOjE3MzU4MDI5ODZ9.BQnhFGdSm55KdL5PS50kHkMLyFcxZWWKlpW4QIhCNOc" \
+-d '{"category_name": "Science"}'
+
+
+####
+curl -X DELETE http://localhost:5000/api/categories/1 \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzM1Nzk4NzMwLCJleHAiOjE3MzU4MDIzMzB9.J2Sm5on0TYLehyVoHNkllEWJvTzBDp2zN8kfWJJrrSc"
+
+
+####
+curl -X POST http://localhost:5000/api/questions/search/
+-H "Content-Type: application/json" -d '{"q":"node"}'
+
+####
+curl -v -X GET "http://localhost:5000/api/questions/search?q=node" -H "Content-Type: application/json"
+
+####
+curl -X GET http://localhost:5000/protected-route \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzM1OTc1NjUxLCJleHAiOjE3MzU5NzkyNTF9.yc2RiebTpaDtpNWFj6tg0srRcE4Sk3duqxTZzLf4xAI"
+
+
+####
+curl -X GET "http://localhost:5000/api/i18n/languages" -H "Content-Type: application/json"
+
+
+####
+curl -i -X POST `
+  https://graph.facebook.com/v21.0/542427175616481/messages `
+  -H 'Authorization: Bearer EAAWZCQxChrbYBOwPUNZATZCMcgi8vTFcMYwF8ls26oB44ILpRtmvNMUNFqgd6Y9T49fNXmlf1KwsD4Mu5B8hPpCJ4gcF9kxwCZCCnMmqkBNS1KYZChEj3ZB9VnS8oZA2I2J88kHwOZB4IPvow0vcpR1gSN1EeVu0PTybizqZAHZCpzgIZAvHzRhYZAf05ild4JiXThqF0AMeZBi7wNBIDrTHzblZC98YMZCGysN' `
+  -H 'Content-Type: application/json' `
+  -d '{ \"messaging_product\": \"whatsapp\", \"to\": \"6285724498827\", \"type\": \"template\", \"template\": { \"name\": \"hello_world\", \"language\": { \"code\": \"en_US\" } } }'
+
+
+
+####
+curl -X POST https://graph.facebook.com/v21.0/542427175616481/messages  \
+-H "Authorization: Bearer EAAWZCQxChrbYBO3UOWQSliIG7L1jxMDDZBSjqprXIeXEJxnTZCt286lUk3eCXdaC7ifZCRbDHrmyb7ZCa5ZAtW9EMf2tLOv2kRYB8jrcFqMpafGm2vHNIMRDiuFkI5hFkksuR9cdYpnD8NJLfzJxW0fnZCeZC1TjYPKW8tqHEa6IcFl9NnZAGWJ53rRxN4sdxEh6ota32LXdsOMKedLBrNEECLkPHlwqZA" \
+-H "Content-Type: application/json" \
+-d '{
+  "messaging_product": "whatsapp",
+  "to": "6285724498827",
+  "type": "text",
+  "text": {
+    "body": "Hello, this is a test message from cURL!"
+  }
+}'
+
+####
+curl -X POST http://localhost:5000/api/otp/send-otp \
+-H "Content-Type: application/json" \
+-d '{
+  "whatsappNumber": "+6281281701539",
+  "otp": "123456"
+}'
+
+
+####
+curl -X POST "https://api.penyedia-otp.com/send" \
+-H "Authorization: Bearer YOUR_API_KEY" \
+-d "phone_number=+628123456789&message=Your OTP is 123456"
+
+####
+curl -i -X POST `
+  https://graph.facebook.com/v21.0/542427175616481/messages `
+  -H 'Authorization: Bearer EAAWZCQxChrbYBO3UOWQSliIG7L1jxMDDZBSjqprXIeXEJxnTZCt286lUk3eCXdaC7ifZCRbDHrmyb7ZCa5ZAtW9EMf2tLOv2kRYB8jrcFqMpafGm2vHNIMRDiuFkI5hFkksuR9cdYpnD8NJLfzJxW0fnZCeZC1TjYPKW8tqHEa6IcFl9NnZAGWJ53rRxN4sdxEh6ota32LXdsOMKedLBrNEECLkPHlwqZA' `
+  -H 'Content-Type: application/json' `
+  -d '{ \"messaging_product\": \"whatsapp\", \"to\": \"6285724498827\", \"type\": \"template\", \"template\": { \"name\": \"hello_world\", \"language\": { \"code\": \"en_US\" } } }'
+
+####
+curl -X POST "http://localhost:5000/webhook" \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d "Body=halo" \
+-d "From=whatsapp:+6285724498827"
+
+
+####
+curl -X POST "https://06e1-114-10-149-128.ngrok-free.app/webhook/" \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d "Body=halo" \
+-d "From=whatsapp:+6285724498827"
+
+####
+curl -X POST "http://localhost:5000/webhook" \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d "Body=halo" \
+-d "From=whatsapp:+6285724498827" \
+-d "To=whatsapp:+14155238886"
+
+####
+curl -X POST http://localhost:5000/api/questions/add \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzM2NDIwMjc0LCJleHAiOjE3MzY1MDY2NzR9.KTkmdmGwvNaUp36JJdPK7GF54ZEMS3bJ_s-4SErbb1k" \
+-d '{
+  "questionText": "Ini adalah pertanyaan baru dengan kategori",
+  "category_id": 1
+}'
+
+
+
+####
+curl -X POST http://localhost:5000/api/questions/add -H "Content-Type: application/json" -d '{
+  "user_id": "14",
+  "category_id": "1",
+  "question_text": "How do I fix this issue?"
+}'
+
+####
+
+curl -X POST http://localhost:5000/api/questions/add \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzM2NDIwMjc0LCJleHAiOjE3MzY1MDY2NzR9.KTkmdmGwvNaUp36JJdPK7GF54ZEMS3bJ_s-4SErbb1k" \
+-d '{
+  "user_id": "4",
+  "category_id": "2",
+  "questionText": "How do I fix this issue?"
+}'
+
+####
+curl -X POST http://localhost:5000/api/questions/add \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzM2NDMwNTEyLCJleHAiOjE3MzY1MTY5MTJ9.w6i3zXuEzl6qXXEf057YQboSbHc5torl4MWGhcMjZeY" \
+-d '{"questionText": "Apa saja bulan dalam kalender hijriah?", "categoryId": null}'
+
+
+####
+curl -X GET http://localhost:5000/api/categories \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTczNjQ0OTE5OSwiZXhwIjoxNzM2NTM1NTk5fQ.7SOlR35l90WwpezoT_LHWz-oX3Gvod0j3T2mCaJ62Ks" \
+-H "Content-Type: application/json"
+
+####
+curl -X GET http://localhost:5000/api/questions/details/87 \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTczNjQ1MjY5MiwiZXhwIjoxNzM2NTM5MDkyfQ.-NrRFCy5UPI3shClKk7mhy0ry2-yMw8Dz2zEbGU3hqM"
+
+####
+curl -X PUT http://localhost:5000/api/questions/87/update \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTczNjQ1MjY5MiwiZXhwIjoxNzM2NTM5MDkyfQ.-NrRFCy5UPI3shClKk7mhy0ry2-yMw8Dz2zEbGU3hqM" \
+-d '{
+  "categoryId": 2
+}'

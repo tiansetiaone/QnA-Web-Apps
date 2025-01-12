@@ -1,0 +1,279 @@
+.list-container {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  background: white;
+  overflow: hidden;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: linear-gradient(to right, #2c736d, #53d9ce);
+  color: white;
+}
+.back-button {
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 10rem;
+}
+
+.header-content {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-qna {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #028090;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.logo-qna img {
+  width: 5em;
+}
+
+.logout-btn-qna {
+  z-index: 3;
+  position: absolute;
+  display: flex;
+  padding: 0.1em;
+  background: white;
+  border-radius: 25rem;
+  right: 0;
+  margin-right: 2em;
+}
+
+.title-lookAsk {
+  font-family: "Irish Grover", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #e0fc0f;
+}
+.filter {
+  text-align: right;
+  padding: 10px 20px;
+  background: #f4f4f4;
+}
+
+.filter button {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cari-container {
+    text-align: right;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #2c736d, #53d9ce);
+    display: flex;
+    justify-content: end;
+    margin-bottom: -2em;
+}
+
+.questions-list {
+  padding: 20px;
+}
+
+.question-card-qna {
+  background: #f9f9f9;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.details {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.question {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.answer-link {
+  color: #028090;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.numbered-list {
+  list-style: none; /* Hilangkan bullet default */
+  counter-reset: list-counter; /* Inisialisasi counter */
+  padding: 0rem 2rem 0rem 1rem;
+}
+
+.numbered-list li {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 30px; /* Ruang untuk angka */
+  counter-increment: list-counter; /* Tambah counter */
+}
+.numbered-list li::before {
+  content: counter(list-counter) ". "; /* Tampilkan angka */
+  position: absolute;
+  left: 0; /* Posisi angka */
+  font-weight: bold;
+  color: #007bff; /* Warna angka */
+}
+
+li button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 3em;
+  margin-right: 1em;
+}
+
+.status-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btn-submit-qna {
+  background: #298b8b;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 2em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-submit-qna:hover {
+  background: #555;
+}
+.answer-section {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.question-card-qna .answer-section {
+  max-height: 1000px; /* Pastikan cukup besar untuk konten jawaban */
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .list-container {
+    font-size: 0.9rem;
+  }
+
+  header {
+    flex-direction: row;
+    text-align: center;
+    padding:30px;
+  }
+
+  .back-button {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .header-content {
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .logo-qna img {
+    width: 3.5em;
+  }
+
+  .logout-btn-qna {
+    position: relative;
+    margin: 10px 0;
+    right: auto;
+  }
+
+  .title-lookAsk {
+    font-size: 1.2rem;
+  }
+
+  .filter {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .filter button {
+    padding: 5px;
+    font-size: 0.9rem;
+  }
+
+  .cari-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  .questions-list {
+    padding: 10px;
+  }
+
+  .question-card-qna {
+    padding: 14px;
+    font-size: 0.9rem;
+  }
+
+  .details {
+    font-size: 0.8rem;
+    line-height: 1.5em;
+  }
+
+  .question {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .answer-link {
+    font-size: 0.8rem;
+  }
+
+  .numbered-list {
+    padding: 0 1rem;
+  }
+
+  .numbered-list li {
+    padding-left: 25px;
+  }
+
+  li button {
+    position: static;
+    margin: 10px 0 0;
+  }
+
+  .btn-submit-qna {
+    padding: 0.4rem 1.5rem;
+    font-size: 0.9rem;
+    margin-top: 1.5em;
+  }
+
+  .pagination {
+    flex-direction: row;
+    gap: 10px;
+  }
+}
