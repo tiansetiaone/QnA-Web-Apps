@@ -1,7 +1,0 @@
-2025/01/14-18:29:15.187 372c Reusing MANIFEST D:\Project Freelance\qna-hosting\qna-backend\.wwebjs_auth\session-client-one\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2025/01/14-18:29:15.189 372c Recovering log #344
-2025/01/14-18:29:15.275 372c Reusing old log D:\Project Freelance\qna-hosting\qna-backend\.wwebjs_auth\session-client-one\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000344.log 
-2025/01/14-18:29:20.630 3a4c Level-0 table #352: started
-2025/01/14-18:29:20.782 3a4c Level-0 table #352: 125715 bytes OK
-2025/01/14-18:29:20.843 3a4c Delete type=0 #344
-2025/01/14-18:29:20.844 3a4c Manual compaction at level-0 from '\x00\\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00]\x00\x00\x00' @ 0 : 0; will stop at (end)
