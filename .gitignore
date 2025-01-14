@@ -2,3 +2,4 @@ node_modules/
 .codegpt
 qna-backend/.wwebjs_auth/
 qna-backend/.wwebjs_cache/
+.vercel
