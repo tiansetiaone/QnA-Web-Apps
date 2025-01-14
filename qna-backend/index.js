@@ -5,7 +5,7 @@ require('dotenv').config();
 const i18n = require('i18next');
 const Backend = require('i18next-fs-backend');
 const middleware = require('i18next-http-middleware');
-const { sendMessageToUser } = require('../qna-backend/whatsapp/wabot'); // Import fungsi kirim pesan
+const { sendMessageToUser } = require('./whatsapp/wabot'); // Import fungsi kirim pesan
 
 // Routes
 const authRoutes = require('./routes/authRoutes');

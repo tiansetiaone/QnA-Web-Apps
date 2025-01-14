@@ -1,8 +1,7 @@
-const qrcode = require('qrcode-terminal');
-const db = require('../config/db'); // Konfigurasi database
-const dbValidation = require('../config/dbValidation'); // Import konfigurasi khusus
-const { Client, LocalAuth } = require('whatsapp-web.js');
-
+const qrcode = require("qrcode-terminal");
+const db = require("../config/db"); // Konfigurasi database
+const dbValidation = require("../config/dbValidation"); // Import konfigurasi khusus
+const { Client, LocalAuth } = require("whatsapp-web.js");
 
 // Inisialisasi WhatsApp Client
 const client = new Client({
@@ -12,28 +11,28 @@ const client = new Client({
 });
 
 // Menampilkan QR code
-client.on('qr', (qr) => {
+client.on("qr", (qr) => {
   qrcode.generate(qr, { small: true });
 });
 
 // Log jika berhasil terautentikasi
-client.on('authenticated', () => {
-  console.log('Bot berhasil terautentikasi.');
+client.on("authenticated", () => {
+  console.log("Bot berhasil terautentikasi.");
 });
 
 // Log jika bot siap digunakan
-client.on('ready', () => {
-  console.log('Bot siap digunakan!');
+client.on("ready", () => {
+  console.log("Bot siap digunakan!");
 });
 
 // Fungsi untuk validasi user di database
 const validateUser = async (userId) => {
   try {
-    const query = 'SELECT id FROM users WHERE id = ?';
+    const query = "SELECT id FROM users WHERE id = ?";
     const [rows] = await dbValidation.execute(query, [userId]); // menggunakan dbValidation
     return rows.length > 0;
   } catch (err) {
-    console.error('Error saat memvalidasi user_id:', err.message);
+    console.error("Error saat memvalidasi user_id:", err.message);
     return false;
   }
 };
@@ -41,23 +40,23 @@ const validateUser = async (userId) => {
 // Fungsi untuk menyimpan pertanyaan ke tabel `questions`
 const saveQuestion = async (userId, categoryId, questionText, groupId) => {
   try {
-    console.log('Menyimpan pertanyaan:', { userId, categoryId, questionText, groupId });
+    console.log("Menyimpan pertanyaan:", { userId, categoryId, questionText, groupId });
     const query = `
       INSERT INTO questions (user_id, category_id, question_text, status, group_id, created_at, updated_at)
       VALUES (?, ?, ?, 'pending', ?, NOW(), NOW())
     `;
     await db.execute(query, [userId, categoryId, questionText, groupId]);
-    console.log('Pertanyaan berhasil disimpan ke database!');
+    console.log("Pertanyaan berhasil disimpan ke database!");
   } catch (err) {
-    console.error('Gagal menyimpan pertanyaan ke database:', err.message);
+    console.error("Gagal menyimpan pertanyaan ke database:", err.message);
   }
 };
 
 // Fungsi untuk memproses pesan
-client.on('message', async (message) => {
+client.on("message", async (message) => {
   try {
     const chatId = message.chat?.id || null; // Cegah error jika message.chat.id undefined
-    console.log(`Pesan masuk dari ${message.from} (grup: ${chatId || 'Personal Chat'}): ${message.body}`);
+    console.log(`Pesan masuk dari ${message.from} (grup: ${chatId || "Personal Chat"}): ${message.body}`);
 
     const prefix = "!question";
     const mentionRegex = /@(\S+)/g; // Regex untuk mendeteksi mention manual
@@ -79,7 +78,7 @@ client.on('message', async (message) => {
       const isBotMentioned = mentions.some((id) => id === botId) || manualMention;
 
       if (isBotMentioned) {
-        const content = message.body.replace(mentionRegex, '').trim(); // Hapus mention/tag
+        const content = message.body.replace(mentionRegex, "").trim(); // Hapus mention/tag
         if (content.toLowerCase().startsWith(prefix)) {
           await processQuestion(message, content, true); // Proses pertanyaan dalam grup
         }
@@ -96,7 +95,7 @@ client.on('message', async (message) => {
       }
     }
   } catch (err) {
-    console.error('Terjadi kesalahan saat memproses pesan:', err);
+    console.error("Terjadi kesalahan saat memproses pesan:", err);
   }
 });
 
@@ -113,9 +112,7 @@ const processQuestion = async (message, content, isGroup) => {
 
     // Validasi input
     if (!userId || !questionText) {
-      await message.reply(
-        `Format salah! Gunakan:\n- !question [token bot] [pertanyaan]\n\nContoh:\n!question 12345 Apa jadwal pengiriman hari ini?`
-      );
+      await message.reply(`Format salah! Gunakan:\n- !question [token bot] [pertanyaan]\n\nContoh:\n!question 12345 Apa jadwal pengiriman hari ini?`);
       return;
     }
 
@@ -128,19 +125,17 @@ const processQuestion = async (message, content, isGroup) => {
 
     // Simpan pertanyaan jika user_id valid
     await saveQuestion(userId, categoryId, questionText, groupId);
-    const replyMessage = isGroup
-      ? `Pertanyaan Anda berhasil disimpan dalam grup ${message.chat?.name || 'tidak diketahui'}! Admin akan segera menindaklanjuti.`
-      : `Pertanyaan Anda berhasil disimpan! Terima kasih telah menghubungi kami.`;
+    const replyMessage = isGroup ? `Pertanyaan Anda berhasil disimpan dalam grup ${message.chat?.name || "tidak diketahui"}! Admin akan segera menindaklanjuti.` : `Pertanyaan Anda berhasil disimpan! Terima kasih telah menghubungi kami.`;
     await message.reply(replyMessage);
   } catch (err) {
-    console.error('Error saat memproses pertanyaan:', err);
-    await message.reply('Terjadi kesalahan saat memproses pertanyaan Anda. Silakan coba lagi nanti.');
+    console.error("Error saat memproses pertanyaan:", err);
+    await message.reply("Terjadi kesalahan saat memproses pertanyaan Anda. Silakan coba lagi nanti.");
   }
 };
 
 // Fungsi untuk memformat nomor telepon
 const formatPhoneNumber = (phone) => {
-  const cleanedPhone = phone.replace(/[^0-9]/g, '');
+  const cleanedPhone = phone.replace(/[^0-9]/g, "");
   if (cleanedPhone.length < 10 || cleanedPhone.length > 15) {
     throw new Error(`Nomor telepon tidak valid: ${cleanedPhone}`);
   }

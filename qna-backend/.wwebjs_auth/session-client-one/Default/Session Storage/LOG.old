@@ -1,2 +1,3 @@
-2025/01/12-23:31:46.098 4c80 Creating DB D:\Project Freelance\PROJECT-QNA\qna-backend\.wwebjs_auth\session-client-one\Default\Session Storage since it was missing.
-2025/01/12-23:31:46.198 4c80 Reusing MANIFEST D:\Project Freelance\PROJECT-QNA\qna-backend\.wwebjs_auth\session-client-one\Default\Session Storage/MANIFEST-000001
+2025/01/14-18:29:15.391 3a4c Reusing MANIFEST D:\Project Freelance\qna-hosting\qna-backend\.wwebjs_auth\session-client-one\Default\Session Storage/MANIFEST-000001
+2025/01/14-18:29:15.392 3a4c Recovering log #3
+2025/01/14-18:29:15.395 3a4c Reusing old log D:\Project Freelance\qna-hosting\qna-backend\.wwebjs_auth\session-client-one\Default\Session Storage/000003.log 

@@ -49,12 +49,12 @@ curl -X GET http://localhost:5000/api/users/profile \
 curl -X GET http://localhost:5000/api/questions/105/answers
 
 ####
-curl -X POST http://localhost:5000/api/answers/105/answers \
+curl -X POST http://localhost:5000/api/answers/127/answers \
 -H "Content-Type: application/json" \
--H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTczNjU3ODk2NCwiZXhwIjoxNzM2NjY1MzY0fQ.zgmHd2D5143lepLvI-OvuOXkLrd2zNnGiPyE6O7heT4" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTczNjc1NjEzNiwiZXhwIjoxNzM2ODQyNTM2fQ.HPb-9n-knE5jQUq3NPLH0hGcqrP4M74HOfV4v8jUBCA" \
 -d '{
-"questionId": 105,
-  "answerText": "itu AKU",
+"questionId": 127,
+  "answerText": "itu AKUlAH",
   "adminId": 10
 }'
 
